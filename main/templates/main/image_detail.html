@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+</head>
+<body>
+    <h2>Image Details</h2>
+    <div class="lightning-effect"></div>
+    <div class="container">
+        <!-- <h1>AI Portal</h1> -->
+        <h2>upload_image</h2>
+        <div class="compress-box"></div>
+        lass="image-fixed-size">
+
+        <img src="{{ image.image.url }}" alt="Uploaded Image" width="612" height="411">
+        <h3>Objects Detected:</h3>
+    <ul>
+        {% for obj in image.details.objects_detected %}
+            <li>{{ obj.object }} - {{ obj.confidence|floatformat:2 }}%</li>
+        {% endfor %}
+    </ul>
+    <p>Faces Detected: {{ image.details.faces_detected }}</p>
+        <!-- <p>Here are the extracted details from your image:</p>
+        <ul>
+            <li><strong>Detail 1:</strong> Example Data</li>
+            <li><strong>Detail 2:</strong> Example Data</li>
+            <li><strong>Detail 3:</strong> Example Data</li>
+        </ul> -->
+        <a href="{% url 'upload_image' %}"><button>Upload Another</button></a>
+    </div>
+   
+    
+</body>
+</html>
+
+
+<!-- <body>
+    <div class="lightning-effect"></div>
+    <div class="container">
+        <h1>AI Portal</h1>
+        <h2>Image Details</h2>
+        <div class="compress-box"></div>
+        <p>Here are the extracted details from your image:</p>
+        <ul>
+            <li><strong>Detail 1:</strong> Example Data</li>
+            <li><strong>Detail 2:</strong> Example Data</li>
+            <li><strong>Detail 3:</strong> Example Data</li>
+        </ul>
+        <a href="{% url 'upload_image' %}"><button>Upload Another</button></a>
+    </div>
+</body> -->
+</html> 
+

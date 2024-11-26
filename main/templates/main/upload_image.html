@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Upload Image</title>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Portal</h1>
+        <h2>Upload Image</h2>
+        <form method="POST" action="{% url 'upload_image' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    <div class="rain" style="left: 10%;"></div>
+    <div class="rain" style="left: 40%; animation-delay: 0.2s;"></div>
+    <div class="wind" style="top: 40%;"></div>
+    <div class="wind" style="top: 80%; animation-delay: 1.5s;"></div>
+</div>
+<!-- Sliding Boxes -->
+<div class="slide-box" style="top: 10%;"></div>
+<div class="slide-box" style="top: 40%; animation-delay: 1s;"></div>
+<div class="slide-box" style="top: 70%; animation-delay: 2s;"></div>
+</body>
+</html>
+
